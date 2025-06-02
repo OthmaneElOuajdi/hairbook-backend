@@ -1,16 +1,10 @@
 package com.hairbook.hairbook.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "mot_cle")
 public class MotCle {
 
@@ -23,4 +17,40 @@ public class MotCle {
     
     @OneToMany(mappedBy = "motCle")
     private List<ArticleMotCle> articles;
+
+    // Constructeurs
+    public MotCle() {
+    }
+
+    public MotCle(Integer id, String mot, List<ArticleMotCle> articles) {
+        this.id = id;
+        this.mot = mot;
+        this.articles = articles;
+    }
+
+    // Getters et Setters
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getMot() {
+        return mot;
+    }
+
+    public void setMot(String mot) {
+        this.mot = mot;
+    }
+
+    public List<ArticleMotCle> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<ArticleMotCle> articles) {
+        this.articles = articles;
+    }
 }
+
